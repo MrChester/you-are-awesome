@@ -10,12 +10,29 @@ const createEnumerableProperty = () => {
     });
 };
 const createNotEnumerableProperty = (propertyName) => {
-    var rSSchoolStudent = {};
-    Object.defineProperty(rSSchoolStudent, propertyName, { enumerable: false, value: 'value' })
+    Object.defineProperty(Object.prototype, propertyName, {
+        enumerable: false,
+        value: 'value'
+    })
     return propertyName;
 };
-const createProtoMagicObject = () => {};
-const incrementor = () => {};
+const createProtoMagicObject = () => {
+    return Function;
+};
+
+var count = 0;
+const incrementor = () => {
+    count++;
+
+    incrementor.__proto__.valueOf = function() {
+        return count;
+    }
+
+    return incrementor;
+};
+
+
+
 const asyncIncrementor = () => {};
 const createIncrementer = () => {};
 
