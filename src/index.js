@@ -41,7 +41,18 @@ const returnBackInSecond = () => {};
 const getDeepPropertiesCount = () => {};
 const createSerializedObject = () => {};
 const toBuffer = () => {};
-const sortByProto = () => {};
+const sortByProto = (array) => {
+    var length = array.length;
+
+    for (var i = 0; i < length - 1; i++) {
+        for (var j = 1; j < length - i; j++) {
+            if (array[j - 1].isPrototypeOf(array[j])) {
+                array[j] = [array[j - 1], array[j - 1] = array[j]][0];
+            }
+        }
+    }
+    return array;
+};
 
 exports.createEnumerableProperty = createEnumerableProperty;
 exports.createNotEnumerableProperty = createNotEnumerableProperty;
