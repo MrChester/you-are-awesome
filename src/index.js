@@ -49,7 +49,14 @@ const returnBackInSecond = (param) => {
     });
 };
 const getDeepPropertiesCount = () => {};
-const createSerializedObject = () => {};
+const createSerializedObject = () => {
+    /*
+    typeof null - 'object';
+    JSON.stringify(null) - "null";
+    JSON.parse(null) - null;
+    */
+    return null;
+};
 const toBuffer = () => {};
 const sortByProto = (array) => {
     var length = array.length;
